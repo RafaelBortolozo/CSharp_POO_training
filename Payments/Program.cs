@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 
 namespace Payments
 {
@@ -6,8 +7,8 @@ namespace Payments
     {
         static void Main(string[] args)
         {
-            var pagamento = new Pagamento();
-            pagamento.DataPagamento = DateTime.Now;
+            var pagamento = new Pagamento(DateTime.Now);
+            pagamento.Pagar("123456");
             
             Console.WriteLine("Hello!");
         }
@@ -15,23 +16,27 @@ namespace Payments
 
 
     public class Pagamento{
-        public string NumeroBoleto;
-        public DateTime Vencimento { get; set; }
 
-        private DateTime _dataPagamento;
-        public DateTime DataPagamento
-        {
-            get{ 
-                Console.WriteLine("Lendo o valor");
-                return _dataPagamento; 
-            }
-            set{ 
-                Console.WriteLine("Atribuindo o valor");
-                _dataPagamento = value; 
-            }
+        public DateTime DataPagamento { get; set; }
+        public Pagamento(DateTime vencimento){
+            Console.WriteLine("Iniciando o pagamento");
+            DataPagamento = DateTime.Now;
         }
-        
 
-        void Pagar(){ }
+        public virtual void Pagar(string numero) {
+            Console.WriteLine("Pagar");
+        }
+
+    }
+
+    public class PagamentoCartao : Pagamento{
+        public override void Pagar(string numero) {
+            base.Pagar(numero);
+            Console.WriteLine("Pagar com cartão");
+        }
+    }
+
+    public class Address{
+        string ZipCode;
     }
 }
