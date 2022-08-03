@@ -68,5 +68,19 @@ dotnet --list-sdks
  - Instância é o ato de converter a classe para um objeto.
  - O modificador "virtual" permite com que um atributo seja sobrescrito, comando inserido na classe pai.
  - O modificador "override" permite com que um atributo seja sobrescrito, comando inserido na classe filho. Dessa forma é possível substituir um método pra executar uma função diferente usando o mesmo nome do atributo. Ex: Pagar(), pagamento com boleto funciona de uma forma totalmente diferente do cartão.
- - Todas as classes herdam os atributos do System, como o ToString(). Se fizer um override em ToString(), o método system será substituido por aquele que voce definiu na classe.
+ - Todas as classes herdam os atributos do System, como o ToString(). Se fizer um override em ToString(), o método no system será substituido por aquele que voce definiu na classe, valido somente para aquela classe.
+ - <strong>Modificadores de acesso</strong>: private, protected, internal e public
+ - Private permite o acesso do atributo apenas por dentro da classe
+ - protected funciona como o privado, porem permite o acesso do atributo nas classes filhos
+ - internal permite o acesso do atributo dentro do mesmo namespace
+ - public permite o acesso livre do atributo
+ - Por padrão as classes são internal, sendo acessiveis no program.cs por estarem com o mesmo namespace
+ - "base." serve para acessar atributos internal na classe pai
+ - Tipos complexos diz respeito aos tipos de dados que não vem por padrão no sistema.
+ - Para criar propriedades, existe um atalho chamado "prop" e outras variantes.
+ - Variaveis privadas podem conter um "_" no inicio da nomenclatura.
+ - Os get set são chamados de acessores, funcionam como uma variavel, porém o C# reconhece automaticamente o acessor utilizado dependendo da forma como você interaje com ela. Os acessores são métodos, então pode haver um processamento sobre o dado antes de ocorrer a ação padrão do acessor.
+ - No set, o valor vem pela palavra reservada "value".
  - 
+
+
