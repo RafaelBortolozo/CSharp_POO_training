@@ -7,10 +7,24 @@ namespace Payments
         static void Main(string[] args)
         {   
             Console.WriteLine("hello!");
-            var payment = new Payment();
-            payment.PropriedadeA = 1;
-            payment.PropriedadeB = 2;
+        
         }
+    }
+
+    public class Pagamento : IPagamento
+    {
+        public DateTime Vencimento { get; set; }
+
+        public void Pagar(double valor)
+        {
+            Console.WriteLine("Pagamento");
+        }
+    }
+
+    public interface IPagamento {
+        DateTime Vencimento { get; set; }
+
+        void Pagar(double valor);
     }
     
 }
