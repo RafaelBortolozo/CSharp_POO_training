@@ -7,17 +7,44 @@ namespace Payments
         static void Main(string[] args)
         {   
             Console.WriteLine("hello!");
+            var pagamento = new Pagamento(); // no
+            var pagamentoBoleto = new PagamentoBoleto(); //yes
+            var pagamentoCartaoCredito = new PagamentoCartaoCredito(); //yes
+            var pagamentoApplePay = new PagamentoApplePay(); //yes
         
         }
     }
 
-    public class Pagamento : IPagamento
+    public abstract class Pagamento : IPagamento
     {
         public DateTime Vencimento { get; set; }
 
-        public void Pagar(double valor)
+        public virtual void Pagar(double valor)
         {
             Console.WriteLine("Pagamento");
+        }
+    }
+
+    public class PagamentoCartaoCredito : Pagamento
+    {
+        public override void Pagar(double valor)
+        {
+            base.Pagar(valor);
+        }
+    }
+    public class PagamentoBoleto : Pagamento
+    {
+        public override void Pagar(double valor)
+        {
+            base.Pagar(valor);
+        }
+    }
+
+    public class PagamentoApplePay : Pagamento
+    {
+        public override void Pagar(double valor)
+        {
+            base.Pagar(valor);
         }
     }
 
