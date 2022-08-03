@@ -92,5 +92,6 @@ dotnet --list-sdks
  - Classes abstratas não podem ser instanciadas. Use-se o termo "abstract".São usadas para classes de escopo aberto, como pagamento(), onde são usadas apenas por outras classes por herança.
  - Upcast permite com que classes filhas se tornem classe pai, ou seja, uma variavel com instancia da classe pai "Pessoa" pode ser substituida tranquilamente por uma instancia de "PessoaFisica", já que ela herda as caracteristicas da classe pai.
  - Downcast faz o inverso, entretanto é preciso fazer uma conversão explicita já que as classes filhas contêm mais atributos que a classe pai.
- 
+ - Objetos apontam para endereços de memória, operador de igualdade vai comparar endereços e não conteúdo. Para comparar conteúdo é usado a interface "IEquatable" onde será gerado uma função "equals()" dentro da classe.
+ - O termo Delegate delega a função para outra função. Obrigatorio ter a mesma assinatura, exceto pelo nome. Essa outra função pode estar em qualquer escopo, desde que seja acessível.
 
