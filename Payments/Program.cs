@@ -5,7 +5,7 @@ namespace Payments
     class Program
     {
         static void RealizarPagamento(double valor){
-            Console.WriteLine($"Pago o valor de {valor} reais");
+            Console.WriteLine($"Pago o valor de {valor}");
         }
         static void Main(string[] args){   
             var metodo = new Pagamento.Pagar(RealizarPagamento);
