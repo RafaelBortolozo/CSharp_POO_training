@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Runtime.InteropServices;
 
 namespace Payments
 {
@@ -7,44 +6,28 @@ namespace Payments
     {
         static void Main(string[] args){   
             Console.WriteLine("Hello");
-            var room = new Room(3);
-            room.RoomSoldOutEvent += OnRoomSoldOut;
-            room.ReserveSeat();
-            room.ReserveSeat();
-            room.ReserveSeat();
-            room.ReserveSeat();
-            room.ReserveSeat();
-            room.ReserveSeat();
-        }
-
-        static void OnRoomSoldOut(object sender, EventArgs e){
-            Console.WriteLine("Sala Lotada!");
+            var context = new DataContext<IPerson, Payment, Subscription>();
+            context.Save(new Payment());
+            context.Save(new Person());
+            context.Save(new Subscription());
         }
     }
 
-    public class Room{
-
-        public Room(int seats){
-            Seats = seats;
-            seatsInUse = 0;
-        }
-        private int seatsInUse = 0;
-        public int Seats { get; set; }
-
-        public void ReserveSeat(){
-            seatsInUse++;
-            if (seatsInUse >= Seats){
-                OnRoomSoldOut(EventArgs.Empty);
-            } else {
-                Console.WriteLine("Assento reservado");
-            }
-        }
-
-        public event EventHandler RoomSoldOutEvent;
-
-        protected virtual void OnRoomSoldOut(EventArgs e) {
-            EventHandler handler = RoomSoldOutEvent;
-            handler?.Invoke(this, e);
-        }
+    public class DataContext<T, U, V> 
+        where T : IPerson
+        where U : Payment
+        where V : Subscription 
+    {
+        public void Save(T entity){ }
+        public void Save(U entity){ }
+        public void Save(V entity){ }
     }
+
+    public interface IPerson { }
+
+    public class Person : IPerson{ }
+
+    public class Payment{ }
+ 
+    public class Subscription{ }
 }

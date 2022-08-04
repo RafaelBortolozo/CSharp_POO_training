@@ -94,5 +94,5 @@ dotnet --list-sdks
  - Downcast faz o inverso, entretanto é preciso fazer uma conversão explicita já que as classes filhas contêm mais atributos que a classe pai.
  - Objetos apontam para endereços de memória, operador de igualdade vai comparar endereços e não conteúdo. Para comparar conteúdo é usado a interface "IEquatable" onde será gerado uma função "equals()" dentro da classe.
  - O termo Delegate delega a função para outra função. Obrigatorio ter a mesma assinatura, exceto pelo nome. Essa outra função pode estar em qualquer escopo, desde que seja acessível.
- - 
+ - Classes com tipos genéricos permitem o acionamento de um método com diferentes tipos complexos de dados. Informa os tipos com <> e restringindo com "where Letter : Class"
 
